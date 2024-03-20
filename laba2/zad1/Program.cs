@@ -6,6 +6,26 @@ class DecimalCounter
     private int minValue; // Мінімальне значення лічильника
     private int maxValue; // Максимальне значення лічильника
     private int currentValue; // Поточне значення лічильника
+    public int MinValue
+    {
+        get {return minValue;}
+        set {minValue = value;}
+    }
+    public int MaxValue
+    {
+        get {return maxValue;}
+        set {maxValue = value;}
+    }
+    public int CurrentValue
+    {
+        get {return minValue;}
+        set {
+            if (value => minValue && value <= maxValue)
+                currentValue = value;
+            else
+                throw new ArgumentOutOfRangeException("Значення", "Значення має бути в діапазоні MinValue і MaxValue.");
+            }
+    }
     public DecimalCounter()
     {
         minValue = 0;
